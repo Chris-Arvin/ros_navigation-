@@ -1,1 +1,2 @@
-# ros_navigation-
+# 问题一：local_costmap_param.yaml中的global_frame为什么是odom，而不是map：
+回答：其实这个是不太合理的，因为存在定位误差。从精确度考虑，更好的选择应该就是map，可以参照costmap_2d_ros.cpp中默认的global_frame就是map。它这里选择了odom主要是考虑了速度，odom到map之间还需要一层转化，速度会变慢。
